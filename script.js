@@ -12,6 +12,11 @@ const playBtn = document.querySelector(".play-btn");
 const starterWords = ["pencil", "school", "table", "orange", "pink", "window", "door", "pen", "cringe", "green", "gray", "age", "human", "person", "teacher"];
 const usedWords = [];
 
+let score = 0;
+let counter = 10;
+let timerInterval;
+let gameStarted = false;
+
 startBtn.addEventListener("click", () => {
   const playerName = nameInput.value.trim().toUpperCase();
 
