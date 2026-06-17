@@ -17,6 +17,10 @@ let counter = 10;
 let timerInterval;
 let gameStarted = false;
 
+lastWord.style.display = "none";
+wordInput.disabled = true;
+score.textContent = "Score: 0";
+
 startBtn.addEventListener("click", () => {
   const playerName = nameInput.value.trim().toUpperCase();
 
