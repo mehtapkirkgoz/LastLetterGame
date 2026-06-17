@@ -33,4 +33,25 @@ startBtn.addEventListener("click", () => {
 
   startPage.style.display = "none";
   gamePage.style.display = "flex";
+
+  resetGame();
 });
+
+function resetGame(){
+  score = 0;
+  counter = 10;
+  gameStarted = false;
+
+  usedWords.length = 0;
+
+  timer.textContent = "10";
+  scoreText.textContent = "Score: 0";
+
+  lastWord.textContent = "";
+  lastWord.style.display = "none";
+
+  wordInput.value = "";
+  wordInput.disabled = true;
+
+  playBtn.textContent = "PLAY";
+}
