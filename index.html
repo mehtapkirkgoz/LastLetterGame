@@ -4,10 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Last Letter Game</title>
-    ,
+    <link rel="icon" type="image/png" href="./icons/favicon.png" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="start-page">
+      <div class="title-row">
+        <h1>LAST LETTER</h1>
+        <div class="help-box">
+          <button class="help-btn">
+            <img src="./icons/question-icon.png" alt="Help" />
+          </button>
+
+          <div class="tooltip">
+            <p>How to play:</p>
+            <p>
+              Enter a word that starts with the last letter of the previous
+              word.
+            </p>
+            <p>Do not repeat used words.</p>
+            <p>You have 10 seconds for each turn.</p>
+          </div>
+        </div>
+      </div>
+
+      <input type="text" id="name" name="name" /><br />
+      <button class="start-btn">START</button>
+    </div>
+    <div class="game-page">
+      <h3 class="gamer-name">Mehtap</h3>
+      <p id="timer">10</p>
+      <p class="last-word">pencil</p>
+
+      <div class="word-row">
+        <input type="text" id="word" name="word" />
+        <p class="skor">55</p>
+      </div>
+
+      <button class="play-btn">PLAY</button>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
