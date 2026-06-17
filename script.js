@@ -87,7 +87,7 @@ function checkUserWord(){
 
   score += 5;
   scoreText.textContent = `Score: ${score}`;
-  
+
   lastWord.textContent = userWord;
   wordInput.value = "";
 
@@ -108,4 +108,22 @@ startBtn.addEventListener("click", () => {
   gamePage.style.display = "flex";
 
   resetGame();
+});
+
+playBtn.addEventListener("click", () => {
+  if(gameStarted === false){
+    const randomWord = getRandomStarterWord();
+
+    lastWord.textContent = randomWord;
+    lastWord.style.display = "block";
+
+    wordInput.disabled = false;
+    wordInput.focus();
+
+    playBtn.textContent = "NEXT";
+    gameStarted = true;
+    startTimer();
+    return;
+  }
+  checkUserWord();
 });
