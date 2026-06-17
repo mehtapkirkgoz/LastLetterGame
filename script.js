@@ -9,6 +9,9 @@ const wordInput = document.querySelector("#word");
 const scoreText = document.querySelector(".skor");
 const playBtn = document.querySelector(".play-btn");
 
+const starterWords = ["pencil", "school", "table", "orange", "pink", "window", "door", "pen", "cringe", "green", "gray", "age", "human", "person", "teacher"];
+const usedWords = [];
+
 startBtn.addEventListener("click", () => {
   const playerName = nameInput.value.trim().toUpperCase();
 
