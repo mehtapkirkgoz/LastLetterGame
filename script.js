@@ -3,6 +3,11 @@ const gamePage = document.querySelector(".game-page");
 const nameInput = document.querySelector("#name");
 const startBtn = document.querySelector(".start-btn");
 const gamerName = document.querySelector(".gamer-name");
+const timer = document.querySelector("#timer");
+const lastWord = document.querySelector(".last-word");
+const wordInput = document.querySelector("#word");
+const scoreText = document.querySelector(".skor");
+const playBtn = document.querySelector(".play-btn");
 
 startBtn.addEventListener("click", () => {
   const playerName = nameInput.value.trim().toUpperCase();
