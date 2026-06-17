@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'ChakraPetch';
+    src: url('./font/ChakraPetch-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    font-family: 'ChakraPetch';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #faebd7;
+    min-height: 100vh;
+}
+
+.start-page, .game-page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #6b0069;
+}
+
+h1{
+    font-size: 42px;
+}
+
+.start-page{
+  display: none;
+}
+
+.game-page{
+  display: flex;
+}
+
+.title-row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 60px;
+}
+
+.help-btn{
+    background-color: #faebd7;
+    border: none;
+    cursor: pointer;
+}
+
+.help-box{
+  position: relative;
+}
+
+.help-btn{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: help;
+}
+
+.tooltip{
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 240px;
+  padding: 12px;
+  background-color: #ff00fb;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.help-box:hover .tooltip{
+  display: block;
+}
+
+input{
+    border: 2px solid #ff00fb;
+    border-radius: 8px;
+    text-align: center;
+    height: 25px;
+    padding: 12px;
+}
+
+input:focus{
+    outline: none;
+    border: 2px solid #ff00fb;
+}
+
+.start-btn, .play-btn{
+    background-color: #ff00fb;
+    border: 2px solid #696666;
+    width: 85px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+.gamer-name{
+    font-size: 38px;
+    margin-bottom: 30px;
+}
+
+.last-word, .play-btn{
+    margin-top: 10px;
+}
+
+.word-row{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
