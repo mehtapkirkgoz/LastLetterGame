@@ -36,11 +36,11 @@ h1{
 }
 
 .start-page{
-  display: none;
+  display: flex;
 }
 
 .game-page{
-  display: flex;
+  display: none;
 }
 
 .title-row{
