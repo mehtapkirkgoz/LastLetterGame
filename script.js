@@ -45,6 +45,28 @@ function getRandomStarterWord(){
   return starterWords[randomIndex];
 }
 
+function startTimer(){
+  clearInterval(timerInterval);
+
+  counter = 10;
+  timer.textContent = counter;
+
+  timerInterval = setInterval(() => {
+    counter--;
+    timer.textContent = counter;
+
+    if (counter === 0) {
+      clearInterval(timerInterval);
+      alert("You lost!");
+
+      gamePage.style.display = "none";
+      startPage.style.display = "flex";
+
+      resetGame();
+    }
+  }, 1000);
+}
+
 startBtn.addEventListener("click", () => {
   const playerName = nameInput.value.trim().toUpperCase();
 
