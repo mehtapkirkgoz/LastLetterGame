@@ -21,22 +21,6 @@ lastWord.style.display = "none";
 wordInput.disabled = true;
 score.textContent = "Score: 0";
 
-startBtn.addEventListener("click", () => {
-  const playerName = nameInput.value.trim().toUpperCase();
-
-  if(playerName === ""){
-    alert("Please enter your name.");
-    return;
-  }
-
-  gamerName.textContent = playerName;
-
-  startPage.style.display = "none";
-  gamePage.style.display = "flex";
-
-  resetGame();
-});
-
 function resetGame(){
   score = 0;
   counter = 10;
@@ -55,3 +39,24 @@ function resetGame(){
 
   playBtn.textContent = "PLAY";
 }
+
+function getRandomStarterWord(){
+  const randomIndex = Math.floor(Math.random() * starterWords.length);
+  return starterWords[randomIndex];
+}
+
+startBtn.addEventListener("click", () => {
+  const playerName = nameInput.value.trim().toUpperCase();
+
+  if(playerName === ""){
+    alert("Please enter your name.");
+    return;
+  }
+
+  gamerName.textContent = playerName;
+
+  startPage.style.display = "none";
+  gamePage.style.display = "flex";
+
+  resetGame();
+});
