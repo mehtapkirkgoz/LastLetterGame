@@ -9,7 +9,7 @@ const wordInput = document.querySelector("#word");
 const scoreText = document.querySelector(".skor");
 const playBtn = document.querySelector(".play-btn");
 
-const starterWords = ["pencil", "school", "table", "orange", "pink", "window", "door", "pen", "cringe", "green", "gray", "age", "human", "person", "teacher"];
+const starterWords = ["PENCIL", "SCHOOL", "TABLE", "ORANGE", "PINK", "WINDOW", "DOOR", "PEN", "CRINGE", "GREEN", "GRAY", "AGE", "HUMAN", "PERSON", "TEACHER"];
 const usedWords = [];
 
 let score = 0;
@@ -55,7 +55,7 @@ function startTimer(){
     counter--;
     timer.textContent = counter;
 
-    if (counter === 0) {
+    if(counter === 0){
       clearInterval(timerInterval);
       alert("You lost!");
 
@@ -65,6 +65,33 @@ function startTimer(){
       resetGame();
     }
   }, 1000);
+}
+
+function checkUserWord(){
+  const userWord = wordInput.value.trim().toLowerCase();
+
+  if(userWord === ""){
+    alert("Please enter a word.");
+    startTimer();
+    return;
+  }
+
+  if(usedWords.includes(userWord)){
+    alert("This word already exists.");
+    wordInput.value = "";
+    startTimer();
+    return;
+  }
+
+  usedWords.push(userWord);
+
+  score += 5;
+  scoreText.textContent = `Score: ${score}`;
+  
+  lastWord.textContent = userWord;
+  wordInput.value = "";
+
+  startTimer();
 }
 
 startBtn.addEventListener("click", () => {
