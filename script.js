@@ -19,7 +19,7 @@ let gameStarted = false;
 
 lastWord.style.display = "none";
 wordInput.disabled = true;
-score.textContent = "Score: 0";
+scoreText.textContent = "Score: 0";
 
 function changerClassLAstLetter(word){
     const lastLetter = word[word.length - 1];
@@ -52,6 +52,18 @@ function getRandomStarterWord(){
   return starterWords[randomIndex];
 }
 
+function controlWord(word){
+    word = word.trim().replaceAll(" ", "");
+
+    if(!/^[a-zA-Z]+$/.test(word)){
+        alert("Please use English letters only.");
+        wordInput.value = "";
+        return null;
+    }
+
+    return word.toUpperCase();
+}
+
 function startTimer(){
   clearInterval(timerInterval);
 
@@ -76,7 +88,7 @@ function startTimer(){
 }
 
 function isFirstLetter(userWord){
-    const previousWord = lastWord.textContent.toLocaleLowerCase();
+    const previousWord = lastWord.textContent.toUpperCase();
     const lastLetter = previousWord[previousWord.length - 1];
     const firstLetter = userWord[0];
 
@@ -84,7 +96,11 @@ function isFirstLetter(userWord){
 }
 
 function checkUserWord(){
-  const userWord = wordInput.value.trim().toLowerCase();
+  const userWord = controlWord(wordInput.value);
+
+  if(userWord === null){
+    return;
+  }
 
   if(userWord === ""){
     alert("Please enter a word.");
@@ -105,6 +121,7 @@ function checkUserWord(){
     }
 
   usedWords.push(userWord);
+  starterWords.push(userWord);
 
   score += 5;
   scoreText.textContent = `Score: ${score}`;
