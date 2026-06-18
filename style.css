@@ -109,7 +109,7 @@ input:focus{
 }
 
 #timer{
-    font-size: 40px;
+    font-size: 60px;
     color: #dc143c;
 }
 
@@ -120,5 +120,10 @@ input:focus{
 
 .last-word, .play-btn{
     margin-top: 10px;
+}
+
+.last-letter{
+    color: #ff00fb;
+    font-size: 22px;
 }
 
