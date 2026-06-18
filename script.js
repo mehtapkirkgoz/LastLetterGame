@@ -57,14 +57,23 @@ function startTimer(){
 
     if(counter === 0){
       clearInterval(timerInterval);
-      alert("You lost!");
+      alert(`You lost! Your Score is ${score}`);
 
       gamePage.style.display = "none";
       startPage.style.display = "flex";
+      nameInput.value = "";
 
       resetGame();
     }
   }, 1000);
+}
+
+function isFirstLetter(userWord){
+    const previousWord = lastWord.textContent.toLocaleLowerCase();
+    const lastLetter = previousWord[previousWord.length - 1];
+    const firstLetter = userWord[0];
+
+    return firstLetter === lastLetter;
 }
 
 function checkUserWord(){
@@ -74,14 +83,19 @@ function checkUserWord(){
     alert("Please enter a word.");
     startTimer();
     return;
-  }
+    }
+
+  if(!isFirstLetter(userWord)){
+        alert("The word must start with the last letter of previous word");
+        wordInput.value = "";
+        return;
+    }
 
   if(usedWords.includes(userWord)){
     alert("This word already exists.");
     wordInput.value = "";
-    startTimer();
     return;
-  }
+    }
 
   usedWords.push(userWord);
 
@@ -127,3 +141,9 @@ playBtn.addEventListener("click", () => {
   }
   checkUserWord();
 });
+
+wordInput.addEventListener("keydown", (e) => {
+    if(e.key === "Enter" && gameStarted === true){
+        checkUserWord();
+    }
+})
