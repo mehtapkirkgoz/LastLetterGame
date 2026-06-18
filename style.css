@@ -108,6 +108,11 @@ input:focus{
     color: #ffffff;
 }
 
+#timer{
+    font-size: 40px;
+    color: #dc143c;
+}
+
 .gamer-name{
     font-size: 38px;
     margin-bottom: 30px;
@@ -117,8 +122,3 @@ input:focus{
     margin-top: 10px;
 }
 
-.word-row{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
