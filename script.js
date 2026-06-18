@@ -21,6 +21,13 @@ lastWord.style.display = "none";
 wordInput.disabled = true;
 score.textContent = "Score: 0";
 
+function changerClassLAstLetter(word){
+    const lastLetter = word[word.length - 1];
+    const wordWithoutLastLetter = word.slice(0, -1);
+
+    lastWord.innerHTML = `${wordWithoutLastLetter}<span class="last-letter">${lastLetter}</span>`;
+}
+
 function resetGame(){
   score = 0;
   counter = 10;
@@ -102,7 +109,7 @@ function checkUserWord(){
   score += 5;
   scoreText.textContent = `Score: ${score}`;
 
-  lastWord.textContent = userWord;
+  changerClassLAstLetter(userWord);
   wordInput.value = "";
 
   startTimer();
@@ -128,7 +135,7 @@ playBtn.addEventListener("click", () => {
   if(gameStarted === false){
     const randomWord = getRandomStarterWord();
 
-    lastWord.textContent = randomWord;
+    changerClassLAstLetter(randomWord);
     lastWord.style.display = "block";
 
     wordInput.disabled = false;
