@@ -8,6 +8,7 @@ const lastWord = document.querySelector(".last-word");
 const wordInput = document.querySelector("#word");
 const scoreText = document.querySelector(".skor");
 const playBtn = document.querySelector(".play-btn");
+const counterLetter = document.querySelector(".counter-letter");
 
 const starterWords = ["PENCIL", "SCHOOL", "TABLE", "ORANGE", "PINK", "WINDOW", "DOOR", "PEN", "CRINGE", "GREEN", "GRAY", "AGE", "HUMAN", "PERSON", "TEACHER"];
 const usedWords = [];
@@ -21,7 +22,8 @@ lastWord.style.display = "none";
 wordInput.disabled = true;
 scoreText.textContent = "Score: 0";
 
-function changerClassLAstLetter(word){
+
+function changeClassLAstLetter(word){
     const lastLetter = word[word.length - 1];
     const wordWithoutLastLetter = word.slice(0, -1);
 
@@ -42,6 +44,7 @@ function resetGame(){
   lastWord.style.display = "none";
 
   wordInput.value = "";
+  updateCounterLetter();
   wordInput.disabled = true;
 
   playBtn.textContent = "PLAY";
@@ -58,6 +61,7 @@ function controlWord(word){
     if(!/^[a-zA-Z]+$/.test(word)){
         alert("Please use English letters only.");
         wordInput.value = "";
+        updateCounterLetter();
         return null;
     }
 
@@ -109,14 +113,16 @@ function checkUserWord(){
     }
 
   if(!isFirstLetter(userWord)){
-        alert("The word must start with the last letter of previous word");
-        wordInput.value = "";
-        return;
+    alert("The word must start with the last letter of previous word");
+    wordInput.value = "";
+    updateCounterLetter();
+    return;
     }
 
   if(usedWords.includes(userWord)){
     alert("This word already exists.");
     wordInput.value = "";
+    updateCounterLetter();
     return;
     }
 
@@ -126,10 +132,16 @@ function checkUserWord(){
   score += 5;
   scoreText.textContent = `Score: ${score}`;
 
-  changerClassLAstLetter(userWord);
+  changeClassLAstLetter(userWord);
   wordInput.value = "";
+  updateCounterLetter();
 
   startTimer();
+}
+
+function updateCounterLetter(){
+    const remaining = 45 - wordInput.value.length;
+    counterLetter.textContent = remaining;
 }
 
 startBtn.addEventListener("click", () => {
@@ -152,7 +164,7 @@ playBtn.addEventListener("click", () => {
   if(gameStarted === false){
     const randomWord = getRandomStarterWord();
 
-    changerClassLAstLetter(randomWord);
+    changeClassLAstLetter(randomWord);
     lastWord.style.display = "block";
 
     wordInput.disabled = false;
@@ -171,3 +183,5 @@ wordInput.addEventListener("keydown", (e) => {
         checkUserWord();
     }
 })
+
+wordInput.addEventListener("input", updateCounterLetter);
