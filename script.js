@@ -17,6 +17,7 @@ let score = 0;
 let counter = 10;
 let timerInterval;
 let gameStarted = false;
+const MAX_LETTER =45;
 
 lastWord.style.display = "none";
 wordInput.disabled = true;
@@ -127,7 +128,6 @@ function checkUserWord(){
     }
 
   usedWords.push(userWord);
-  starterWords.push(userWord);
 
   score += 5;
   scoreText.textContent = `Score: ${score}`;
@@ -140,7 +140,7 @@ function checkUserWord(){
 }
 
 function updateCounterLetter(){
-    const remaining = 45 - wordInput.value.length;
+    const remaining = MAX_LETTER - wordInput.value.length;
     counterLetter.textContent = remaining;
 }
 
