@@ -108,8 +108,9 @@ input:focus{
     color: #ffffff;
 }
 
-.inform{
-    font-size: 8px;
+.gamer-name{
+    font-size: 38px;
+    margin-bottom: 30px;
 }
 
 #timer{
@@ -117,13 +118,23 @@ input:focus{
     color: #dc143c;
 }
 
-.gamer-name{
-    font-size: 38px;
-    margin-bottom: 30px;
-}
-
 .last-word, .play-btn{
     margin-top: 10px;
+}
+
+.word-place{
+    position: relative;
+    width: fit-content;
+}
+
+.counter-letter{
+    position: absolute;
+    right: 0;
+    font-size: 10px;
+}
+
+.inform{
+    font-size: 8px;
 }
 
 .last-letter{
